@@ -1,0 +1,42 @@
+name: Workflow bug
+description: Report a reproducible problem without sharing private data or credentials
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "Use synthetic inputs. Remove tokens, identifiers, webhook URLs, and execution data before posting."
+  - type: input
+    id: n8n-version
+    attributes:
+      label: n8n version
+      placeholder: "For example: 2.x.y"
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Observed behavior
+      description: What happened, and at which named node did the execution diverge or fail?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Use synthetic Telegram content and list the path taken through the workflow.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed credentials, private identifiers, webhook URLs, and real user content.
+          required: true
